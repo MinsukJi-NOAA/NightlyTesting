@@ -1,10 +1,11 @@
 #!/bin/bash
 
+RUN_DIR='/export/emc-lw-mji/mji/NightlyTesting'
 REPO_FILE='repo.info'
 LOG_CSV_FILE='change.csv'
 LOG_HTML_FILE='change.html'
 
-cd /export/emc-lw-mji/mji/NightlyTesting
+cd $RUN_DIR
 
 # Create LOG_CSV_FILE and enter headers
 if [ ! -f $LOG_CSV_FILE ]; then

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-RUN_DIR='/export/emc-lw-mji/mji/NightlyTesting'
+RUN_DIR=$(dirname $0)
 REPO_FILE='repo.info'
 LOG_CSV_FILE='change.csv'
 LOG_HTML_FILE='change.html'
@@ -31,7 +31,6 @@ do
   else
     printf "unchanged ($(echo ${cur_hash} | cut -c 1-7))," >> $LOG_CSV_FILE 
     head -${repo_number} $REPO_FILE | tail -1 >> ${REPO_FILE}.tmp
-
   fi
   ((repo_number++))
 done < ${REPO_FILE}
@@ -40,4 +39,4 @@ sed -i 's/,$/\n/' $LOG_CSV_FILE
 mv -f ${REPO_FILE}.tmp ${REPO_FILE}
 
 # Convert LOG_CSV_FILE to LOG_HTML_FILE
-./csv_to_html.awk change.csv > change.html
+./csv_to_html.awk $LOG_CSV_FILE > $LOG_HTML_FILE

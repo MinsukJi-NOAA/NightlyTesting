@@ -15,7 +15,7 @@ if [ ! -f $LOG_CSV_FILE ]; then
 fi
 
 # Enter today's date (first column in LOG_CSV_FILE)
-printf "$(date -u "+%x-%X")," >> $LOG_CSV_FILE
+printf "$(date -u "+%Y/%m/%d-%H:%M:%S UTC")," >> $LOG_CSV_FILE
 
 # Check if repo hash has changed
 # If yes: 1) write 'changed' in LOG_CSV_FILE; 2) update REPO_FILE hash

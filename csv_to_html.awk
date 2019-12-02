@@ -3,7 +3,7 @@
 # Set field separator as comma for csv and print the HTML header line
 BEGIN {
     FS=",";
-    print "<html><body><table>"
+    print "<html><body><table border="1">"
 }
 # Function to print a row with one argument to handle either a 'th' tag or 'td' tag
 function printRow(tag) {

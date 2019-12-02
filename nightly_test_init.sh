@@ -39,3 +39,4 @@ sed -i 's/,$/\n/' $LOG_CSV_FILE
 mv -f ${REPO_FILE}.tmp ${REPO_FILE}
 
 # Convert LOG_CSV_FILE to LOG_HTML_FILE
+./csv_to_html.awk change.csv > change.html
